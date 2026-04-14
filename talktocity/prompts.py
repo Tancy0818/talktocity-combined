@@ -2,6 +2,8 @@ def get_prompt_en(question: str, context: str, intent: str) -> str:
     if intent == "itinerary":
         return f"""
             You are the 'TalkToCity' Travel Assistant. Your goal is to build a realistic schedule.
+            You MUST answer in English only.
+            Even if the user's question is in Hindi or another language, the response must be in English.
         
             CONTEXT:
             {context}
@@ -27,13 +29,13 @@ def get_prompt_en(question: str, context: str, intent: str) -> str:
             RESPONSE FORMAT:
         
             **Morning:**
-            - [Activity Name]&#58; [Brief Description]
+            - [Activity Name]: [Brief Description]
         
             **Afternoon:**
-            - [Activity Name]&#58; [Brief Description]
+            - [Activity Name]: [Brief Description]
         
             **Evening:**
-            - [Activity Name]&#58; [Brief Description]
+            - [Activity Name]: [Brief Description]
         
             Sources:
             - <id>
@@ -45,6 +47,8 @@ def get_prompt_en(question: str, context: str, intent: str) -> str:
         return f"""
         
         You are the 'TalkToCity' Travel Assistant.
+        You MUST answer in English only.
+        Even if the user's question is in Hindi or another language, the response must be in English.
         
         
         Your goal is to extract and present the most relevant places or food items clearly and accurately.
@@ -91,9 +95,9 @@ def get_prompt_en(question: str, context: str, intent: str) -> str:
         RESPONSE FORMAT:
         
         
-        - [Name]&#58; [Short Description]
+        - [Name]: [Short Description]
         
-        - [Name]&#58; [Short Description]
+        - [Name]: [Short Description]
         
         
         Sources:
@@ -109,10 +113,10 @@ def get_prompt_en(question: str, context: str, intent: str) -> str:
         return f"""
         
         You are the 'TalkToCity' Travel Assistant.
-        
+        You MUST answer in English only.
+        Even if the user's question is in Hindi or another language, the response must be in English.
         
         Your goal is to provide a clear, structured, and accurate answer using ONLY the provided CONTEXT.
-        
         
         CONTEXT:
         
@@ -164,6 +168,8 @@ def get_prompt_hi(question: str, context: str, intent: str) -> str:
     if intent == "itinerary":
         return f"""
         आप 'TalkToCity' के हिंदी यात्रा सहायक हैं।
+        आपको उत्तर केवल हिंदी में देना है।
+        यदि प्रश्न अंग्रेज़ी या किसी अन्य भाषा में हो, तब भी उत्तर हिंदी में ही दें।
     
         CONTEXT:
         {context}
@@ -188,13 +194,13 @@ def get_prompt_hi(question: str, context: str, intent: str) -> str:
         उत्तर का प्रारूप:
     
         सुबह:
-        - [स्थान]&#58; [विवरण]
+        - [स्थान]: [विवरण]
     
         दोपहर:
-        - [स्थान]&#58; [विवरण]
+        - [स्थान]: [विवरण]
     
         शाम:
-        - [स्थान]&#58; [विवरण]
+        - [स्थान]: [विवरण]
     
         स्रोत:
         - <chunk_id>
@@ -206,7 +212,8 @@ def get_prompt_hi(question: str, context: str, intent: str) -> str:
         return f"""
         
         आप 'TalkToCity' के हिंदी सहायक हैं।
-        
+        आपको उत्तर केवल हिंदी में देना है।
+        यदि प्रश्न अंग्रेज़ी या किसी अन्य भाषा में हो, तब भी उत्तर हिंदी में ही दें।
         
         आपका लक्ष्य सबसे प्रासंगिक स्थानों या भोजन विकल्पों को स्पष्ट और सही रूप में प्रस्तुत करना है।
         
@@ -246,9 +253,9 @@ def get_prompt_hi(question: str, context: str, intent: str) -> str:
         उत्तर का प्रारूप:
         
         
-        - [नाम]&#58; [संक्षिप्त विवरण]
+        - [नाम]: [संक्षिप्त विवरण]
         
-        - [नाम]&#58; [संक्षिप्त विवरण]
+        - [नाम]: [संक्षिप्त विवरण]
         
         
         स्रोत:
@@ -264,7 +271,8 @@ def get_prompt_hi(question: str, context: str, intent: str) -> str:
         return f"""
         
         आप 'TalkToCity' के हिंदी यात्रा सहायक हैं।
-        
+        आपको उत्तर केवल हिंदी में देना है।
+        यदि प्रश्न अंग्रेज़ी या किसी अन्य भाषा में हो, तब भी उत्तर हिंदी में ही दें।
         
         आपका लक्ष्य दिए गए CONTEXT के आधार पर स्पष्ट, सटीक और सुव्यवस्थित उत्तर देना है।
         

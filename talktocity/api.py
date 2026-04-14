@@ -400,25 +400,24 @@ def compute_retrieval_score(query: str, docs: list) -> tuple[float, dict]:
     return score, retrieval_debug
 
 
-# api.py
-
 def detect_intent(query: str) -> str:
-    q = query.lower()
+    q = query.lower().replace("-", " ")
 
+    # itinerary
     if any(term in q for term in [
-        "itinerary", "1-day", "1 day", "one day",
-        "day plan", "travel plan",
-        "यात्रा योजना", "एक दिन", "एक दिवसीय"
-    ]):
+        "itinerary", "day plan", "travel plan",
+        "यात्रा योजना", "यात्रा कार्यक्रम"
+    ]) or re.search(r"\d+\s*(day|days|दिन|दिवसीय)", q):
         return "itinerary"
 
+    # food
     if any(term in q for term in [
         "food", "eat", "restaurant", "street food",
-        "cafe", "dishes", "paratha",
-        "खाना", "भोजन", "रेस्तरां", "कैफे"
+        "खाना", "भोजन", "रेस्तरां"
     ]):
         return "food"
 
+    # places
     if any(term in q for term in [
         "places", "visit", "attractions", "things to do",
         "घूमने", "दर्शनीय", "पर्यटन"

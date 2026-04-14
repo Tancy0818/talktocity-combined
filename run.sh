@@ -30,6 +30,7 @@ GEMINI_MODEL="${GEMINI_MODEL:-gemini-2.0-flash}"
 EMBEDDING_MODEL="${EMBEDDING_MODEL:-labse}"
 GOOGLE_CLIENT_ID="${GOOGLE_CLIENT_ID:-}"
 JWT_SECRET="${JWT_SECRET:-change-this-secret}"
+HF_TOKEN="${HF_TOKEN:-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}"
 
 if [[ -z "$GEMINI_API_KEY" ]]; then
   echo "Error: GEMINI_API_KEY is not set."
@@ -113,7 +114,7 @@ start_backend() {
     -e DATABASE_URL="postgresql+psycopg://postgres:postgres@talktocity-db:5432/talktocity" \
     -e GEMINI_API_KEY="$GEMINI_API_KEY" \
     -e GEMINI_MODEL="$GEMINI_MODEL" \
-    -e HF_HUB_DISABLE_IMPLICIT_TOKEN=1 \
+    -e HF_TOKEN="$HF_TOKEN" \
     -e EMBEDDING_MODEL="$model" \
     -e GOOGLE_CLIENT_ID="$GOOGLE_CLIENT_ID" \
     -e JWT_SECRET="$JWT_SECRET" \

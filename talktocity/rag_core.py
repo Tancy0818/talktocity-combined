@@ -296,10 +296,7 @@ def _chunk_family(meta: dict) -> str:
     return "_".join(parts[:3]) if len(parts) >= 3 else chunk_id
 
 
-def rerank_docs_for_itinerary(query: str, docs: list) -> list:
-    if not is_itinerary_query(query):
-        return docs
-
+def rerank_docs_for_itinerary(docs: list) -> list:
     scored = []
     family_counts = defaultdict(int)
 
@@ -428,7 +425,7 @@ def retrieve_chunks(
             filter=filters,
         )
         if intent == "itinerary":
-            docs = rerank_docs_for_itinerary(query, docs)
+            docs = rerank_docs_for_itinerary(docs)
         return docs
     except AttributeError:
         logger.warning("MMR not available on current PGVector version, falling back to similarity_search")
