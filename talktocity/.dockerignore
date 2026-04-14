@@ -1,0 +1,21 @@
+# IDE settings
+.idea/
+.vscode/
+nppBackup/
+# Python virtual environments
+.venv/
+venv/
+env/
+__pycache__/
+*.pyc
+
+# Local environment variables
+#.env
+
+# Git metadata
+.git
+.gitignore
+
+# Docker metadata
+Dockerfile
+.dockerignore
