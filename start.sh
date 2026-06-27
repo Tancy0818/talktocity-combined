@@ -1,5 +1,16 @@
-GEMINI_API_KEY=AIzaSyAn4XV79a4OhYpB-7dVfbc8BFCYsGiD4DA \
-GOOGLE_CLIENT_ID="336469588868-bv6adr8ub9bp15ccco0a44gch9oojdva.apps.googleusercontent.com" \
-JWT_SECRET="dc5cef8ccae02f17044d7ad68c72f7337d937cca641183b74cc1e1bf5a2f5875" \
-GEMINI_MODEL="gemini-2.5-flash" \
-EMBEDDING_MODEL=minilm ./run.sh
+#!/bin/bash
+
+# ==========================================
+# Environment Variables
+# Replace these with your own values locally
+# or export them before running the application.
+# ==========================================
+
+export GEMINI_API_KEY="${GEMINI_API_KEY}"
+export GOOGLE_CLIENT_ID="${GOOGLE_CLIENT_ID}"
+export JWT_SECRET="${JWT_SECRET}"
+
+export GEMINI_MODEL="gemini-2.5-flash"
+export EMBEDDING_MODEL="minilm"
+
+./run.sh
